@@ -1,0 +1,13 @@
+<div style="margin-top: 20px;background-color: #c1c1c1;" *ngIf="form">
+    <div>
+        Detalhes do form
+    </div>
+    <pre>
+        Form válido : {{form.valid}}
+    </pre>
+    <pre>
+        Valores :
+        <pre style="background-color: #fff; margin: 10px;">{{form.value | json }}
+        </pre>
+    </pre>
+</div>
