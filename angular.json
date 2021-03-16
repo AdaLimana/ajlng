@@ -42,6 +42,122 @@
           }
         }
       }
+    },
+    "ajlng-application": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ajlng-application",
+      "sourceRoot": "projects/ajlng-application/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ajlng-application",
+            "index": "projects/ajlng-application/src/index.html",
+            "main": "projects/ajlng-application/src/main.ts",
+            "polyfills": "projects/ajlng-application/src/polyfills.ts",
+            "tsConfig": "projects/ajlng-application/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ajlng-application/src/favicon.ico",
+              "projects/ajlng-application/src/assets"
+            ],
+            "styles": [
+              "projects/ajlng-application/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ajlng-application/src/environments/environment.ts",
+                  "with": "projects/ajlng-application/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ajlng-application:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ajlng-application:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ajlng-application:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ajlng-application/src/test.ts",
+            "polyfills": "projects/ajlng-application/src/polyfills.ts",
+            "tsConfig": "projects/ajlng-application/tsconfig.spec.json",
+            "karmaConfig": "projects/ajlng-application/karma.conf.js",
+            "assets": [
+              "projects/ajlng-application/src/favicon.ico",
+              "projects/ajlng-application/src/assets"
+            ],
+            "styles": [
+              "projects/ajlng-application/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ajlng-application/tsconfig.app.json",
+              "projects/ajlng-application/tsconfig.spec.json",
+              "projects/ajlng-application/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ajlng-application/e2e/protractor.conf.js",
+            "devServerTarget": "ajlng-application:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ajlng-application:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ajlng"
