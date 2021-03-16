@@ -1,0 +1,10 @@
+.ajl-input-error-message
+{
+    background-color: transparent;
+    border: 0 none;
+    margin: 0px;
+    color: #e62a10;
+    font-size: 12px;
+    padding: .25em .5em;
+    vertical-align: top;
+}
