@@ -8,7 +8,7 @@ import { AbstractControl, ControlValueAccessor, FormControl } from '@angular/for
 })
 export class InputErrorMessageComponent{
 
-  @Input() form: AbstractControl = new FormControl();
+  @Input() control: AbstractControl = new FormControl();
 
   @Input() label: string = '';
 
@@ -16,11 +16,11 @@ export class InputErrorMessageComponent{
 
   get errorMessage( ) {
 
-		if (this.form !== undefined && this.form !== null) {
-			for (const property_name in this.form.errors) {
+		if (this.control !== undefined && this.control !== null) {
+			for (const property_name in this.control.errors) {
 
-				if ( this.form.errors.hasOwnProperty(property_name) && this.form.touched){
-					return this.getErrorMessage(this.label, property_name, this.form.errors[property_name]);
+				if ( this.control.errors.hasOwnProperty(property_name) && this.control.touched){
+					return this.getErrorMessage(this.label, property_name, this.control.errors[property_name]);
 				}
 			}
 		}
@@ -34,7 +34,7 @@ export class InputErrorMessageComponent{
   ):string {
 
     const config = {
-        'email': `${fieldName} inválido. Favor informar um e-mail válido.`,
+        'email': `${fieldName} inválido. Favor incontrolar um e-mail válido.`,
         'required': `${fieldName} é obrigatório.`,
         'minlength': `${fieldName} deve ter no mínimo ${validatorValue.requiredLength} caracteres.`,
         'maxlength': `${fieldName} deve ter no máximo ${validatorValue.requiredLength} caracteres.`,

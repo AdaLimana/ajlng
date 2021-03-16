@@ -1,6 +1,6 @@
 <div class="card">
     <form [formGroup]="formGroup">
         <input type="text" formControlName="name">
-        <ajl-input-error-message [form]="formGroup.controls['name']" label="name"></ajl-input-error-message>
+        <ajl-input-error-message [control]="formGroup.controls['name']" label="name"></ajl-input-error-message>
     </form>
 </div>
