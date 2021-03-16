@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ajlng": {
+      "projectType": "library",
+      "root": "projects/ajlng",
+      "sourceRoot": "projects/ajlng/src",
+      "prefix": "ajl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ajlng/tsconfig.lib.json",
+            "project": "projects/ajlng/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ajlng/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ajlng/src/test.ts",
+            "tsConfig": "projects/ajlng/tsconfig.spec.json",
+            "karmaConfig": "projects/ajlng/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ajlng/tsconfig.lib.json",
+              "projects/ajlng/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ajlng"
 }
