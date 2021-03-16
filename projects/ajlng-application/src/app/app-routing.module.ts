@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
     imports: [
-        RouterModule.forRoot([])
+        RouterModule.forRoot([
+            {path: 'form-debug', loadChildren: () => import("./components/form-debug/form-debug-demo.module").then(m => m.FormDebugDemoModule)},
+        ])
     ],
     exports: [RouterModule]
 })
