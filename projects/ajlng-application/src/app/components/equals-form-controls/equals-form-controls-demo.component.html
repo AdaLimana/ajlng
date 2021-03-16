@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup">
+    <div>
+        <label for="password">Password</label>
+        <input id="password" type="text" formControlName="password" ajlEqualsFormControls="repeatPassword">
+        <small *ngIf="formGroup.controls['password'].hasError('ajlNotEqualsFormControls')" style="color: #d00;">Password is not equals</small>
+    </div>
+    <div>
+        <label for="repeatPassword">Repeat Password</label>
+        <input id="repeatPassword" type="text" formControlName="repeatPassword">
+        <small *ngIf="formGroup.controls['password'].hasError('ajlNotEqualsFormControls')" style="color: #d00;">Password is not equals</small>
+    </div>
+</form>
