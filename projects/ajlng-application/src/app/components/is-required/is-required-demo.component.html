@@ -1,0 +1,10 @@
+<form [formGroup]="formGroup">
+
+    <label for="name" [ajlIsRequired]="formGroup.controls['name'].validator">Name</label>
+    <input formControlName="name" id="name" type="text">
+</form>
+
+<div>
+    <input type="checkbox" id="nameRequired" name="scales" [(ngModel)]="nameRequired" (change)="changeRequired(nameRequired)">
+    <label for="nameRequired">Name is required</label>
+</div>

@@ -1,0 +1,4 @@
+label.ajl-required:after{
+    color: #d00;
+    content: ' * ';
+}

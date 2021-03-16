@@ -6,7 +6,8 @@ import { NgModule } from '@angular/core';
         RouterModule.forRoot([
             {path: 'form-debug', loadChildren: () => import("./components/form-debug/form-debug-demo.module").then(m => m.FormDebugDemoModule)},
             {path: 'input-error-message', loadChildren: () => import("./components/input-error-message/input-error-message-demo.module").then(m => m.InputErrorMessageDemoModule)},
-        ])
+            {path: 'is-required', loadChildren: () => import("./components/is-required/is-required-demo.module").then(m => m.IsRequiredDemoModule)},
+        ]),
     ],
     exports: [RouterModule]
 })
